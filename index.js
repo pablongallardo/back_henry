@@ -20,7 +20,7 @@ app.use('/api', require('./routes'));
 //   })
 // });
 
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   app.listen(port, () => {
     console.log("%s listening at " + port); // eslint-disable-line no-console
   });
