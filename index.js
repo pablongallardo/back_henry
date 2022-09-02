@@ -13,13 +13,18 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', require('./routes'));
 
-conn.sync({ force: false }).then(() => {
-  app.listen(3001, () => {
-  LoadDb();
-    console.log('✓ Se conectó a la base de datos');
-  })
-});
+// conn.sync({ force: false }).then(() => {
+//   app.listen(3001, () => {
+//   LoadDb();
+//     console.log('✓ Se conectó a la base de datos');
+//   })
+// });
 
-app.listen(port, () => {
-  console.log('✓ Servidor corriendo en el puerto ' + port);
+conn.sync({ force: true }).then(() => {
+  app.listen(port, () => {
+    console.log("%s listening at " + port); // eslint-disable-line no-console
+  });
 });
+// app.listen(port, () => {
+//   console.log('✓ Servidor corriendo en el puerto ' + port);
+// });
