@@ -20,8 +20,9 @@ app.use('/api', require('./routes'));
 //   })
 // });
 
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   app.listen(port, () => {
+    LoadDb()
     console.log("%s listening at " + port); // eslint-disable-line no-console
   });
 });
